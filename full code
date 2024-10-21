@@ -1,0 +1,121 @@
+d my-project
+PS C:\build tools\my-project> pwd
+Path
+----
+C:\build tools\my-project
+
+
+Mode                 LastWriteTime         Length Name                                                                                                                            
+-a----         19-Oct-24   7:08 PM             33 script1.sh
+-a----         19-Oct-24   7:09 PM             67 script2.sh
+
+
+PS C:\build tools\my-project> cat script1.sh
+#!/bin/bash
+
+echo "Hello, world!"
+PS C:\build tools\my-project> cat script2.sh
+#!/bin/bash
+
+read -p "Enter your name: " name
+echo "Hello, $name!"
+PS C:\build tools\my-project> git init
+Reinitialized existing Git repository in C:/build tools/my-project/.git/
+usage: git remote add [<options>] <name> <url>
+
+    -m, --[no-]master <branch>
+                          master branch
+    --[no-]mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+PS C:\build tools\my-project> git remote add origin https://github.com/arunkumar-code/myproject.git 
+error: remote origin already exists.
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project> git add .
+PS C:\build tools\my-project> git commit -m "Initial commit"
+On branch master
+nothing to commit, working tree clean
+PS C:\build tools\my-project> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/arunkumar-code/VCS-task.git'
+PS C:\build tools\my-project> 
+To push the current branch and set the remote as upstream, use
+    git push --set-upstream origin master
+PS C:\build tools\my-project> git push -u origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 650 bytes | 20.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/arunkumar-code/VCS-task.git
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project> git checkout feature-branch
+PS C:\build tools\my-project> git checkout -b feature-branch
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+vi : The term 'vi' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that  
+At line:1 char:1
++ vi script1.sh
+    + CategoryInfo          : ObjectNotFound: (vi:String) [], CommandNotFoundException
+ 
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project> cat script1.sh
+
+echo" changes made"
+warning: in the working copy of 'script1.sh', LF will be replaced by CRLF the next time Git touches it
+PS C:\build tools\my-project> git commit -m "Feature changes"
+[feature-branch 670c3c9] Feature changes
+Your branch is up to date with 'origin/master'.
+PS C:\build tools\my-project> git merge feature_branch
+merge: feature_branch - not something we can merge
+PS C:\build tools\my-project> git merge feature-branch
+Updating 0a0d36e..670c3c9
+Fast-forward
+ script1.sh | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\build tools\my-project> git checkout feature-branch
+Switched to branch 'feature-branch'
+PS C:\build tools\my-project> git rebase master
+Current branch feature-branch is up to date.
+PS C:\build tools\my-project> git stash
+No local changes to save
+PS C:\build tools\my-project> git status
+On branch feature-branch
+nothing to commit, working tree clean
+PS C:\build tools\my-project> git diff
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project> git log
+commit 670c3c9ed57efe9059f0f4c04edfcdb44ddd0c27 (HEAD -> feature-branch, master)
+    Feature changes
+
+commit 0a0d36ee94a1939bc98b4d5ef949a52661c79131 (origin/master)
+Author: arunkumar-code <arunkumar@gmail.com>
+Date:   Sat Oct 19 19:12:32 2024 +0530
+
+    Initial commit
+
+commit cbdca5b4c4ea2a55c7ce8d86a96d8b35e739776e
+Author: arunkumar-code <arunkumar@gmail.com>
+Date:   Sat Oct 19 19:05:22 2024 +0530
+
+    Initial commit
+
+commit 4ee43a3a806dcfe0877d767e8384f55c929c2dba
+Author: arunkumar-code <arunkumar@gmail.com>
+Date:   Mon Oct 14 16:02:03 2024 +0530
+
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project>
+PS C:\build tools\my-project> git log --oneline
+670c3c9 (HEAD -> feature-branch, master) Feature changes
+0a0d36e (origin/master) Initial commit
+cbdca5b Initial commit
+4ee43a3 initial commit
